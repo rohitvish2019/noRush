@@ -1,0 +1,51 @@
+body{
+    height: 100vh;
+}
+.card-text{
+    font-size: x-small;
+}
+
+.main-body{
+    height: 100%;
+}
+
+.doctors-list{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 2%;
+    overflow: scroll;
+    height: 60%
+}
+
+.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active{
+    background-color: rgb(7, 187, 133);
+    color: rgb(236, 238, 240);
+}
+
+.bookNow{
+    width: 100%;
+}
+.time-slots{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 2%;
+}
+
+.time-slots input, label{
+    min-width: 30%;
+    margin-top: 1%;
+}
+.card-img-top{
+    width:45%;
+    height: 45%;
+    margin-left: 25%;
+}
+.doctors-list .card{
+    width: 25%;
+    min-width: 150px;
+    margin-left: 1%;
+    margin-top: 3%;
+    max-height: 45%;
+    min-height:230px;
+}

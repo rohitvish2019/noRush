@@ -1,0 +1,16 @@
+.home-options{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.home-options .card{
+    margin-top: 5%;
+}
+
+.card-body{
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,17 @@
+{
+  "name": "norush",
+  "version": "1.0.0",
+  "description": "App to take appointment and track it.",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "author": "Rohit Vishwakarma",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongoose": "^8.1.3",
+    "properties-reader": "^2.3.0"
+  }
+}
