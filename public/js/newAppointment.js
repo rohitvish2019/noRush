@@ -49,16 +49,30 @@ function showDoctorsList(docsList){
         fetchedDocs[i].addEventListener('click', function(event){
             document.getElementById('doctorId').value=docsList[i]._id
             document.getElementById('doctorName').value=docsList[i].FullName
-            let id='ghasjkgda,'
-            document.getElementById('checkAvailability').setAttribute('href','/doctors/getAvailability/?id='+docsList[i]._id+'&timestamp='+document.getElementById('appointmentDate').value)
-            
         })
     }
 }
 
 
 function checkAvailability(){
-
+    let id = document.getElementById('doctorId').value
+    let date = document.getElementById('appointmentDate').value
+    if(!id || !date){
+        console.log('Please select Doctor and date correctly')
+        return
+    }
+    $.ajax({
+        type:'Get',
+        url:'/doctors/getAvailability',
+        data:{
+            id,
+            date
+        },
+        success:function(data){
+            responseData = data.timeframe[0];
+            window.location.href='/doctors/showBookings/'+responseData.DocId+'?startTime='+responseData.startTime+'&endTime='+responseData.endTime
+        }
+    })
 }
 
 document.getElementById('location').addEventListener('change', getDoctorsListByLocation);

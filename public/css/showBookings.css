@@ -1,0 +1,16 @@
+.time-slots{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 2%;
+}
+
+.time-slots div{
+    min-width: 30%;
+    margin-top: 1%;
+}
+
+.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active{
+    background-color: rgb(7, 187, 133);
+    color: rgb(236, 238, 240);
+}
