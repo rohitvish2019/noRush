@@ -5,4 +5,6 @@ router.get('/getAll', doctorsController.getAllDoctors);
 router.get('/getAvailability', doctorsController.getAvailabilityByID);
 router.post('/setAvailability', doctorsController.setAvailibility);
 router.get('/showBookings/:id', doctorsController.showBookings)
+router.post('/getBookingConfirmation', doctorsController.confirmBooking);
+router.get('/getBlockedTimesReport',doctorsController.getBlockedTimes);
 module.exports = router;

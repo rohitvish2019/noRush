@@ -1,5 +1,6 @@
 const Doctors = require('../models/doctors');
 const Availiability = require('../models/avaialibility');
+const Bookings = require('../models/bookings')
 module.exports.getAllDoctors = async function(req, res){
     console.log(req.query)
     try{
@@ -60,6 +61,35 @@ module.exports.setAvailibility = async function(req, res){
 }
 
 
-module.exports.showBookings = function(req, res){
-    return res.render('showBookings',{timeframe:req.query, DocId:req.params.id});
+module.exports.showBookings = async function(req, res){
+    let doctor = await Doctors.findById(req.params.id,'_id FullName Address Location');
+    
+    return res.render('showBookings',{timeframe:req.query,doctor});
+}
+
+module.exports.getBlockedTimes = async function(req, res){
+    console.log(req.query)
+    try{
+        let blockedTimes = await Bookings.find({DocId:req.query.DocId, date:req.query.date},'selectedTime');
+        return res.status(200).json({
+            blockedTimes
+        })
+    }catch(err){
+        return res.status(500).json({
+            message:'Unable to get blocked timings'
+        })
+    }
+}
+
+module.exports.confirmBooking = async function(req, res){
+    try{
+        let booking = await Bookings.create(req.body);
+        return res.status(200).json({
+            message:'Booking confirmed'
+        })
+    }catch(err){
+        return res.status(500).json({
+            message:'Unable to book, Please try again later'
+        })
+    }
 }

@@ -1,12 +1,19 @@
 const Doctor = require('../models/doctors');
+const Avaialibility = require('../models/avaialibility');
 module.exports.RegistrationDoctors = function(req, res){
     return res.render('doctorRegistration')
 }
 
 module.exports.addDoctor = async function(req, res){
+    console.log(req.body)
     try{
-        await Doctor.create(req.body);
-        console.log('Registering')
+        let doctor = await Doctor.create(req.body);
+        console.log('Registering');
+        await Avaialibility.create({
+            DocId:doctor._id,
+            startTime:req.body.startTime,
+            endTime:req.body.endTime
+        })
         return res.status(200).json({
             message:'Your registration was successful'
         })
@@ -16,6 +23,5 @@ module.exports.addDoctor = async function(req, res){
             message:'Unable to register, Please try again later'
         })
     }
-    
 }
 

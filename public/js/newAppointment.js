@@ -70,7 +70,7 @@ function checkAvailability(){
         },
         success:function(data){
             responseData = data.timeframe[0];
-            window.location.href='/doctors/showBookings/'+responseData.DocId+'?startTime='+responseData.startTime+'&endTime='+responseData.endTime
+            window.location.href='/doctors/showBookings/'+responseData.DocId+'?startTime='+responseData.startTime+'&endTime='+responseData.endTime+'&date='+date
         }
     })
 }
