@@ -10,38 +10,16 @@
 <body>
     <%- include('_navbar')%>
     <div class="main-body">
-        <div class="card">
+        <%for(let i=0;i<bookings.length;i++){%>
+          <div class="card">
             <img src="/images/doctor.png" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Dr Name</h5>
-              <p class="card-text">Your Appointment Time is : 2:30 PM</p>
+              <h5 class="card-title"><%=bookings[i].DocId.FullName%></h5>
+              <p class="card-text">Your Appointment Time is <%=bookings[i].selectedTime%></p>
               <a href="#" class="btn btn-primary">Cancel</a>
             </div>
-        </div>
-        <div class="card">
-            <img src="/images/doctor.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Dr Name</h5>
-              <p class="card-text">Your Appointment Time is : 2:30 PM</p>
-              <a href="#" class="btn btn-primary">Cancel</a>
-            </div>
-        </div>
-        <div class="card">
-            <img src="/images/doctor.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Dr Name</h5>
-              <p class="card-text">Your Appointment Time is : 2:30 PM</p>
-              <a href="#" class="btn btn-primary">Cancel</a>
-            </div>
-        </div>
-        <div class="card">
-            <img src="/images/doctor.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Dr Name</h5>
-              <p class="card-text">Your Appointment Time is : 2:30 PM</p>
-              <a href="#" class="btn btn-primary">Cancel</a>
-            </div>
-        </div>
+          </div>
+        <%}%>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
